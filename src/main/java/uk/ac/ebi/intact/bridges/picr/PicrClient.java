@@ -1,9 +1,5 @@
 package uk.ac.ebi.intact.bridges.picr;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import uk.ac.ebi.intact.bridges.picr.jaxb.GetUPIForAccessionReturn;
-import uk.ac.ebi.intact.bridges.picr.jaxb.IdenticalCrossReferences;
 import uk.ac.ebi.intact.bridges.picr.resultParsing.PicrParsingException;
 import uk.ac.ebi.intact.bridges.picr.resultParsing.PicrRESTResultParser;
 import uk.ac.ebi.kraken.interfaces.uniparc.UniParcEntry;
@@ -31,6 +27,8 @@ import java.util.List;
 
 public class PicrClient {
 
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ConfigurationFileBootstrap.class);
+
     private AccessionMapperService accessionMapperService;
     private PicrRESTResultParser parser = new PicrRESTResultParser();
     private static final String wsdlFile = "http://www.ebi.ac.uk/Tools/picr/service?wsdl";
@@ -38,11 +36,6 @@ public class PicrClient {
     private static final String restURLForUniprotBestGuess = "http://www.ebi.ac.uk/Tools/picr/rest/getUniProtBestGuess?";
     private static final String accessionMappingURL = "http://www.ebi.ac.uk/picr/AccessionMappingService";
     private static final String accessionMappingName = "AccessionMapperService";
-
-    /**
-     * Sets up a logger for that class.
-     */
-    public static final Log log = LogFactory.getLog(PicrClient.class);
 
     public PicrClient(){
         this(wsdlFile);

@@ -1,7 +1,7 @@
 package uk.ac.ebi.intact.bridges.picr.resultParsing;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.ac.ebi.intact.bridges.picr.jaxb.GetUPIForAccessionResponse;
 
 import javax.xml.bind.JAXBContext;
@@ -20,10 +20,7 @@ import java.net.URL;
 
 public class PicrRESTResultParser {
 
-   /**
-     * Sets up a logger for this class.
-     */
-    public static final Log log = LogFactory.getLog( PicrRESTResultParser.class );
+    private static final Logger logger = LoggerFactory.getLogger(TaxonomyWsClient.class);
 
     // //////////////////////
     // Private methods

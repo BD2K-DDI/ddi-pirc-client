@@ -9,6 +9,7 @@ package uk.ac.ebi.intact.bridges.picr;
  */
 
 public class PicrClientException extends Exception {
+
     public PicrClientException() {
         super();
     }
